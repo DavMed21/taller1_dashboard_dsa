@@ -20,12 +20,27 @@ app.config.suppress_callback_exceptions = True
 
 
 # Load data from csv
-def load_data():
-    # To do: Completar la función 
-    
+def load_data(ruta,nombre,tipo):
+    # Ruta completa del archivo
+    path = f"{ruta}{nombre}{tipo}"
+
+    # Carga del archivo
+    df = pd.read_csv(path)
+
+    # Convertir la columna de time a formato datetime y nombrandolo como fecha
+    df['fecha'] = pd.to_datetime(df['time'])
+
+    # Fecha como índice del df
+    df = df.set_index("fecha")
+
+    # Retornar el DataFrame
+    return df
 
 # Cargar datos
-data = load_data()
+ruta="C:/Users/brymy/Documents/dsa_uniandes/t1_archivos_requeridos/"
+nombre='datos_energia'
+tipo='.csv'
+data = load_data(ruta,nombre,tipo)
 
 # Graficar serie
 def plot_series(data, initial_date, proy):
