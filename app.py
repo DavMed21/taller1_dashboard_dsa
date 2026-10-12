@@ -37,7 +37,7 @@ def load_data(ruta,nombre,tipo):
     return df
 
 # Cargar datos
-ruta="C:/Users/brymy/Documents/dsa_uniandes/t1_archivos_requeridos/"
+ruta="/home/ec2-user/taller1_dashboard_dsa/t1_archivos_requeridos/"
 nombre='datos_energia'
 tipo='.csv'
 data = load_data(ruta,nombre,tipo)
